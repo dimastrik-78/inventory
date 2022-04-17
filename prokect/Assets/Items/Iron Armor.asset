@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f43d1639171d6b842b7feba500bea5ce, type: 3}
   m_Name: Iron Armor
   m_EditorClassIdentifier: 
-  type: 0
-  icon: {fileID: 0}
-  itemName: 
-  itemCost: 0
-  itemSpecial: 0
-  itemDescription: 
+  itemsTypes: 0
+  icon: {fileID: 2217424777187503925, guid: 83bf93558b0ec514a95bd6edcd67f7ac, type: 3}
+  itemName: helm
+  itemCost: 150
+  itemSpecial: 15

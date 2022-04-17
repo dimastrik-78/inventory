@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "ItemSO", menuName = "New item", order = 51)]
+[CreateAssetMenu(fileName = "ItemsTypes", menuName = "New item", order = 51)]
 public class Objects : ScriptableObject
 {
     public enum ItemsTypes { Armor, Sword, Bow, Staff, Material, Consumable };
@@ -11,7 +11,6 @@ public class Objects : ScriptableObject
     [SerializeField] private string itemName;
     [SerializeField] private int itemCost;
     [SerializeField] private int itemSpecial;
-    [SerializeField] private string itemDescription;
     public string ItemName
     {
         get
@@ -19,14 +18,6 @@ public class Objects : ScriptableObject
             return itemName;
         }
     }
-    public string ItemDescription
-    {
-        get
-        {
-            return itemDescription;
-        }
-    }
-
     public Sprite Icon
     {
         get
