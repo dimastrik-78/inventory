@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1e4e5f35c3751a4d8c0a6b1205f97a2, type: 3}
+  m_Name: mushroom
+  m_EditorClassIdentifier: 
+  itemsTypes: 4
+  icon: {fileID: -8958939799521180034, guid: 7e5433acbf42e454492d6c2ab3ada2fe, type: 3}
+  itemName: Mushroom
+  itemCost: 15
+  itemSpecial: 5
