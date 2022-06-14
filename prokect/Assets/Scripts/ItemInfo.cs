@@ -2,35 +2,50 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
+
 public class ItemInfo : MonoBehaviour
 {
-    [HideInInspector] public int RandomItem;
-    private Object[] items;
-    [HideInInspector] public Objects[] itemtype;
-    public ObjectsData Item;
+    [HideInInspector] public AllItems[] itemtype;
+    [HideInInspector] public int SelectItem;
+    [HideInInspector] public int LocationItem;
+    //[HideInInspector] public GameObject ImageObj;
+
+    public Inventory Item;
     public GameObject PanelItem;
     public Transform PanelItemT;
+
+    private Object[] _objectItem;
+    private Text _name;
+    private Text _cost;
+    private Text _type;
+    private Text _special;
+
     private void Start()
     {
-        items = Resources.LoadAll("items", typeof(Objects));
-        itemtype = new Objects[items.Length];
-        for (int i = 0; i < items.Length; i++)
-        {
-            itemtype[i] = (Objects)items[i];
-        }
-        RandomItem = Item.RandomNum;
+        //ImageObj = GetComponent<GameObject>();
+        _name = PanelItemT.GetChild(0).GetComponent<Text>();
+        _cost = PanelItemT.GetChild(1).GetComponent<Text>();
+        _type = PanelItemT.GetChild(2).GetComponent<Text>();
+        _special = PanelItemT.GetChild(3).GetComponent<Text>();
     }
-    private void OnMouseEnter()
+    private void OnMouseUp()
     {
         PanelItem.SetActive(true);
-        PanelItemT.GetChild(0).GetComponent<Text>().text = $"Name: {itemtype[RandomItem].ItemName}";
-        PanelItemT.GetChild(1).GetComponent<Text>().text = $"Cost: {itemtype[RandomItem].ItemCost}";
-        PanelItemT.GetChild(2).GetComponent<Text>().text = $"Type: {itemtype[RandomItem].ItemType.ToString()}";
-        PanelItemT.GetChild(3).GetComponent<Text>().text = $"Special: {itemtype[RandomItem].ItemSpecial}";
+        _name.text = $"Name: {itemtype[SelectItem].ItemName}";
+        _cost.text = $"Cost: {itemtype[SelectItem].ItemCost}";
+        _type.text = $"Type: {itemtype[SelectItem].ItemType}";
+        _special.text = $"Special: {itemtype[SelectItem].ItemSpecial}";
+        Item.LocateNum = LocationItem;
     }
-    private void OnMouseExit()
+    public void InstallingItem(int Item, int Locate)
     {
-        PanelItem.SetActive(false);
+        _objectItem = Resources.LoadAll("items", typeof(AllItems));
+        itemtype = new AllItems[_objectItem.Length];
+        for (int i = 0; i < _objectItem.Length; i++)
+        {
+            itemtype[i] = (AllItems)_objectItem[i];
+        }
+        SelectItem = Item;
+        LocationItem = Locate;
     }
 }
